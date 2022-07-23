@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with React Js.
+This project is about my personal porfolio where you can see all my projects. (Under developement)
 
 ## Available Scripts
 
