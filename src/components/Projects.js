@@ -1,4 +1,9 @@
 import { Col, Container, Nav, Row, Tab } from "react-bootstrap"
+import { Projectcard } from "./ProjectCard"
+import colorSharp2 from '../assets/img/color-sharp2.png'
+import projImg1 from '../assets/img/project-img1.png'
+import projImg2 from '../assets/img/project-img2.png'
+import projImg3 from '../assets/img/project-img3.png'
 
 export const Projects = () => {
 
@@ -44,7 +49,7 @@ export const Projects = () => {
                         </h2>
                         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum, fugit. Aliquam, voluptatibus perspiciatis expedita voluptas quasi veritatis harum doloribus sint mollitia perferendis placeat veniam, eveniet officia nisi vel iste praesentium?</p>
                         <Tab.Container id='projects-tabs' defaultActiveKey='first'>
-                        <Nav variant='pills' defaultActiveKey='/home'>
+                        <Nav variant='pills' className='nav-pills mb-5 justify-content-center align-items-center' id='pills-tab'>
                             <Nav.Item>
                                 <Nav.Link eventKey='first'>Tab One</Nav.Link>
                             </Nav.Item>
@@ -61,7 +66,10 @@ export const Projects = () => {
                                     {
                                         projects.map((project, index) => {
                                             return (
-                                                <p>{project.title}</p>
+                                                <Projectcard
+                                                    key={index}
+                                                    {...project}
+                                                 />
                                             )
                                         })
                                     }
@@ -74,6 +82,7 @@ export const Projects = () => {
                     </Col>
                 </Row>
             </Container>
+            <img className='background-image-right' src={colorSharp2}></img>
         </section>
     )
 }
