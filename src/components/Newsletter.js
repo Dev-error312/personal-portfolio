@@ -1,16 +1,15 @@
-import { Col, Row } from "react-bootstrap"
+import { Col, Row, Alert } from "react-bootstrap"
 import { useState, useEffect } from 'react'
-import e from "cors"
 
 export const Newsletter = ({ onValidated, status , message }) => {
 
     const [ email, setEmail ] = useState('')
 
     useEffect(() => {
-        if (status === 'success') clearFields
+        if (status === 'success') clearFields()
     }, [status])
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.preventDeafault()
         email &&
         email.indexOf("@") > -1 &&
@@ -31,7 +30,7 @@ export const Newsletter = ({ onValidated, status , message }) => {
                         <h3>Subscribe to our Newsletter</h3>
                         {status === 'sending' && <Alert>Sending...</Alert>}
                         {status === 'error' && <Alert variant='danger'>{message}</Alert>}
-                        {status === 'sucess' && <Alert variant='success'>{message}</Alert>}
+                        {status === 'success' && <Alert variant='success'>{message}</Alert>}
                     </Col>
                     <Col md={6} xl={7}>
                         <form onSubmit={handleSubmit}>
